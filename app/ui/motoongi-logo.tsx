@@ -10,7 +10,7 @@ export default function AcmeLogo() {
     >
       <Link className="flex justify-center items-center gap-1" href="/">
 						<JuKaiLogo width={36} height={36} />
-						<p className="font-bold text-inherit">Jujutsu Kaisen</p>
+						<p className="font-bold text-inherit">Motoongi</p>
 			</Link>
     </div>
   );
