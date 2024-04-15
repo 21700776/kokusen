@@ -55,9 +55,14 @@ export const siteConfig = {
 			href: "/logout",
 		},
 	],
+	log: [
+		{
+		  label: "Login",
+		  href: "/login",
+		},
+		],
 	links: {
 		github: "https://github.com/21700776/nextjs-framework",
-		twitter: "https://twitter.com",
 		docs: "https://nextui.org",
 		discord: "https://discord.gg",
     sponsor: "login"

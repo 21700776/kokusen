@@ -1,4 +1,3 @@
-import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
@@ -11,6 +10,7 @@ import {
 	NavbarMenuToggle,
 	Navbar as NextUINavbar,
 } from "@nextui-org/navbar";
+import { Button } from "@nextui-org/react";
 
 import { link as linkStyles } from "@nextui-org/theme";
 
@@ -22,8 +22,7 @@ import {
 	DiscordIcon,
 	GithubIcon,
 	HeartFilledIcon,
-	SearchIcon,
-	TwitterIcon,
+	SearchIcon
 } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 
@@ -83,9 +82,6 @@ export const Navbar = () => {
 				justify="end"
 			>
 				<NavbarItem className="hidden sm:flex gap-2">
-					<Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
-						<TwitterIcon className="text-default-500" />
-					</Link>
 					<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
 						<DiscordIcon className="text-default-500" />
 					</Link>
@@ -96,17 +92,31 @@ export const Navbar = () => {
 				</NavbarItem>
 				<NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
 				<NavbarItem className="hidden md:flex">
-					<Button
-						isExternal
-						as={Link}
-						className="text-sm font-normal text-default-600 bg-default-100"
-						href={siteConfig.links.sponsor}
-						startContent={<HeartFilledIcon className="text-danger" />}
-						variant="flat"
+				<ul className="hidden lg:flex gap-4 justify-start">
+					{siteConfig.log.map((login) => (
+						<NavbarItem key={login.href}>
+							
+							<NextLink
+						className={clsx(
+							linkStyles({ color: "foreground" }),
+							"data-[active=true]:text-primary data-[active=true]:font-medium"
+						)}
+						color="foreground"
+						href={login.href}
 					>
-						Login
-					</Button>
+						<Button
+								className="text-sm font-normal text-default-600 bg-default-100 "
+								variant="flat"
+								startContent={<HeartFilledIcon className="text-danger" />}
+							>
+								{login.label}
+							</Button>
+						</NextLink>
+						</NavbarItem>
+					))}
+				</ul>
 				</NavbarItem>
+				
 			</NavbarContent>
 
 			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">

@@ -11,10 +11,10 @@ export default async function LatestInvoices() { // Remove props
       <h2 className={`${NanumMyeongjo.className} mb-4 text-xl md:text-2xl`}>
         Latest Invoices
       </h2>
-      <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
+      <div className="flex grow flex-col justify-between rounded-xl  bg-default-100 p-4">
         {/* NOTE: comment in this code when you get to this point in the course */}
 
-        { <div className="bg-white px-6">
+        { <div className="rounded-xl bg-opacity-20 bg-default-300 px-6">
           {latestInvoices.map((invoice, i) => {
             return (
               <div
@@ -38,7 +38,7 @@ export default async function LatestInvoices() { // Remove props
                     <p className="truncate text-sm font-semibold md:text-base">
                       {invoice.name}
                     </p>
-                    <p className="hidden text-sm text-gray-500 sm:block">
+                    <p className="hidden text-sm text-violet-300 sm:block">
                       {invoice.email}
                     </p>
                   </div>
