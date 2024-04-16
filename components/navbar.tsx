@@ -10,7 +10,6 @@ import {
 	NavbarMenuToggle,
 	Navbar as NextUINavbar,
 } from "@nextui-org/navbar";
-import { Button } from "@nextui-org/react";
 
 import { link as linkStyles } from "@nextui-org/theme";
 
@@ -21,12 +20,13 @@ import NextLink from "next/link";
 import {
 	DiscordIcon,
 	GithubIcon,
-	HeartFilledIcon,
 	SearchIcon
 } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 
 import { JuKaiLogo } from "@/components/icons";
+
+import DropDrop from '@/components/dropdrop';
 
 export const Navbar = () => {
 	const searchInput = (
@@ -95,23 +95,7 @@ export const Navbar = () => {
 				<ul className="hidden lg:flex gap-4 justify-start">
 					{siteConfig.log.map((login) => (
 						<NavbarItem key={login.href}>
-							
-							<NextLink
-						className={clsx(
-							linkStyles({ color: "foreground" }),
-							"data-[active=true]:text-primary data-[active=true]:font-medium"
-						)}
-						color="foreground"
-						href={login.href}
-					>
-						<Button
-								className="text-sm font-normal text-default-600 bg-default-100 "
-								variant="flat"
-								startContent={<HeartFilledIcon className="text-danger" />}
-							>
-								{login.label}
-							</Button>
-						</NextLink>
+						<DropDrop />
 						</NavbarItem>
 					))}
 				</ul>
