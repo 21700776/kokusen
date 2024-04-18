@@ -1,6 +1,6 @@
 import { fetchCustomers, fetchInvoiceById } from '@/app/lib/data';
-import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
-import Form from '@/app/ui/invoices/edit-form';
+import Breadcrumbs from '@/app/ui/reviews/breadcrumbs';
+import Form from '@/app/ui/reviews/edit-form';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -23,10 +23,10 @@ export default async function Page({ params }: { params: { id: string } }) {
     <main>
       <Breadcrumbs
         breadcrumbs={[
-          { label: 'Reviews', href: '/dashboard/invoices' },
+          { label: 'Reviews', href: '/dashboard/reviews' },
           {
             label: 'Edit Reviews',
-            href: `/dashboard/invoices/${id}/edit`,
+            href: `/dashboard/reviews/${id}/edit`,
             active: true,
           },
         ]}

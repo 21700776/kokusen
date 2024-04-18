@@ -10,7 +10,7 @@ export const siteConfig = {
     },
     {
       label: "Reviews",
-      href: "/dashboard/invoices",
+      href: "/dashboard/reviews",
     },
     {
       label: "About",
@@ -32,7 +32,7 @@ export const siteConfig = {
 		},
 		{
 			label: "Reviews",
-			href: "/dashboard/invoices",
+			href: "/dashboard/reviews",
 		},
 		{
 			label: "내 정보",
