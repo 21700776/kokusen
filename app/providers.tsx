@@ -12,11 +12,14 @@ export interface ProvidersProps {
 }
 
 export function Providers({ children, themeProps }: ProvidersProps) {
-  const router = useRouter();
+    const router = useRouter();
 
-	return (
-		<NextUIProvider navigate={router.push}>
-			<NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
-		</NextUIProvider>
-	);
+    return (
+        <NextUIProvider navigate={router.push}>
+            {/* NextThemesProvider에 children을 직접 전달합니다 */}
+            <NextThemesProvider {...themeProps}>
+                {children}
+            </NextThemesProvider>
+        </NextUIProvider>
+    );
 }
