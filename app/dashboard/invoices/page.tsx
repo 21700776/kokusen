@@ -9,7 +9,7 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Invoices',
+  title: 'Reviews',
 };
 
 export default async function Page({
@@ -31,7 +31,7 @@ export default async function Page({
         <h1 className={`${NotoSansKR.className} text-2xl`}>Invoices</h1>
       </div>
       <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
-        <Search placeholder="Search invoices..." />
+        <Search placeholder="Search Reviews..." />
         <CreateInvoice />
       </div>
       <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>

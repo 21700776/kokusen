@@ -9,7 +9,7 @@ export default async function LatestInvoices() { // Remove props
   return (
     <div className="flex w-full flex-col md:col-span-4">
       <h2 className={`${NanumMyeongjo.className} mb-4 text-xl md:text-2xl`}>
-        Latest Invoices
+        <a href="dashboard/reviews">Latest Invoices</a>
       </h2>
       <div className="flex grow flex-col justify-between rounded-xl  bg-default-100 p-4">
         {/* NOTE: comment in this code when you get to this point in the course */}

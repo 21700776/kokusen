@@ -51,7 +51,7 @@ export default function RootLayout({
 								href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
 								title="nextui.org homepage"
 							>
-								<span className="text-default-600">Powered by</span>
+								<span className="text-default-600">Powered by 여기 수정 필요</span>
 								<p className="text-primary">NextUI</p>
 							</Link>
 						</footer>

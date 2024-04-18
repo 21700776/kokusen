@@ -5,55 +5,51 @@ export const siteConfig = {
 	description: "Make beautiful websites regardless of your design experience.",
 	navItems: [
     {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
       label: "Books",
-      href: "/books",
+      href: "/dashboard/books",
     },
     {
       label: "Reviews",
-      href: "/reviews",
+      href: "/dashboard/invoices",
     },
     {
       label: "About",
-      href: "/about",
-    }
+      href: "/dashboard/about",
+    },
+	{
+		label: "고객센터",
+		href: "/help-feedback",
+	  },
 	],
 	navMenuItems: [
 		{
-			label: "Profile",
-			href: "/profile",
-		},
-		{
-			label: "Dashboard",
+			label: "Main",
 			href: "/dashboard",
 		},
 		{
-			label: "Projects",
-			href: "/projects",
+			label: "Books",
+			href: "/dashboard/books",
 		},
 		{
-			label: "Team",
-			href: "/team",
+			label: "Reviews",
+			href: "/dashboard/invoices",
 		},
 		{
-			label: "Calendar",
-			href: "/calendar",
+			label: "내 정보",
+			href: "/dashboard/profile",
 		},
 		{
-			label: "Settings",
-			href: "/settings",
+			label: "내 리뷰",
+			href: "/dashboard/profile/myreview",
 		},
 		{
-			label: "Help & Feedback",
+			label: "고객센터",
 			href: "/help-feedback",
 		},
-		{
-			label: "Logout",
-			href: "/logout",
-		},
+		// {
+		// 	label: "Logout",
+		// 	href: "/logout",
+		// },
 	],
 	log: [
 		{
