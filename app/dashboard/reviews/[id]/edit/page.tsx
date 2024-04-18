@@ -1,4 +1,4 @@
-import { fetchCustomers, fetchInvoiceById } from '@/app/lib/data';
+import { fetchCustomers, fetchreviewById } from '@/app/lib/data';
 import Breadcrumbs from '@/app/ui/reviews/breadcrumbs';
 import Form from '@/app/ui/reviews/edit-form';
 import { Metadata } from 'next';
@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
-  const [invoice, customers] = await Promise.all([
-    fetchInvoiceById(id),
+  const [review, customers] = await Promise.all([
+    fetchreviewById(id),
     fetchCustomers(),
   ]);
 
-  if (!invoice) {
+  if (!review) {
     notFound();
   }
 
@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           },
         ]}
       />
-      <Form invoice={invoice} customers={customers} />
+      <Form review={review} customers={customers} />
     </main>
   );
 }

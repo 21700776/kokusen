@@ -1,12 +1,12 @@
 // import { fetchCardData } from '@/app/lib/data';
 // import { Card } from '@/app/ui/dashboard/cards';
 import CardWrapper from '@/app/ui/dashboard/cards';
-import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
+import Latestreviews from '@/app/ui/dashboard/latest-reviews';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import { NanumMyeongjo } from '@/app/ui/fonts';
 import {
   CardsSkeleton,
-  LatestInvoicesSkeleton,
+  LatestreviewsSkeleton,
   RevenueChartSkeleton
 } from '@/app/ui/skeletons';
 import { Metadata } from 'next';
@@ -31,8 +31,8 @@ export default async function Page() {
         <Suspense fallback={<RevenueChartSkeleton />}>
           <RevenueChart />
         </Suspense>
-        <Suspense fallback={<LatestInvoicesSkeleton />}>
-          <LatestInvoices />
+        <Suspense fallback={<LatestreviewsSkeleton />}>
+          <Latestreviews />
         </Suspense>
       </div>
     </main>
