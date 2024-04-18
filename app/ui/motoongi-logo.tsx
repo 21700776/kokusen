@@ -9,7 +9,7 @@ export default function AcmeLogo() {
       className={`${NanumMyeongjo.className} flex justify-center items-center leading-none text-white`}
     >
       <Link className="flex justify-center items-center gap-1" href="/">
-						<JuKaiLogo width={36} height={36} />
+						<JuKaiLogo width={36} height={36} alt={""}/>
 						<p className="font-bold text-inherit">Motoongi</p>
 			</Link>
     </div>

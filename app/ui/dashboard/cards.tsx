@@ -1,31 +1,31 @@
 import { fetchCardData } from '@/app/lib/data';
 import { NanumMyeongjo } from '@/app/ui/fonts';
 import {
-    BanknotesIcon,
-    ClockIcon,
-    InboxIcon,
-    UserGroupIcon,
+  BanknotesIcon,
+  ClockIcon,
+  InboxIcon,
+  UserGroupIcon,
 } from '@heroicons/react/24/outline';
 
 const iconMap = {
   collected: BanknotesIcon,
   customers: UserGroupIcon,
   pending: ClockIcon,
-  reviews: InboxIcon,
+  invoices: InboxIcon,
 };
 
 export default async function CardWrapper() {
   const {
-    numberOfreviews,
+    numberOfInvoices,
     numberOfCustomers,
-    totalPaidreviews,
-    totalPendingreviews,
+    totalPaidInvoices,
+    totalPendingInvoices,
   } = await fetchCardData();
   return (
     <>
-      <Card title="Collected" value={totalPaidreviews} type="collected" />
-      <Card title="Pending" value={totalPendingreviews} type="pending" />
-      <Card title="Total reviews" value={numberOfreviews} type="reviews" />
+      <Card title="Collected" value={totalPaidInvoices} type="collected" />
+      <Card title="Pending" value={totalPendingInvoices} type="pending" />
+      <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
       <Card
         title="Total Customers"
         value={numberOfCustomers}
@@ -42,7 +42,7 @@ export function Card({
 }: {
   title: string;
   value: number | string;
-  type: 'reviews' | 'customers' | 'pending' | 'collected';
+  type: 'invoices' | 'customers' | 'pending' | 'collected';
 }) {
   const Icon = iconMap[type];
 

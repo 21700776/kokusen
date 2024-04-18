@@ -16,13 +16,13 @@ const FormSchema = z.object({
       .number()
       .gt(0, { message: 'Please enter an amount greater than $0.' }),
     status: z.enum(['pending', 'paid'], {
-      invalid_type_error: 'Please select an review status.',
+      invalid_type_error: 'Please select an invoice status.',
     }),
     date: z.string(),
   });
 
-const Createreview = FormSchema.omit({ id: true, date: true });
-const Updatereview = FormSchema.omit({ id: true, date: true });
+const CreateInvoice = FormSchema.omit({ id: true, date: true });
+const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 
 export type State = {
     errors?: {
@@ -33,8 +33,8 @@ export type State = {
     message?: string | null;
   };
 
-export async function createreview(prevState: State, formData: FormData) {
-    const validatedFields = Createreview.safeParse({
+export async function createInvoice(prevState: State, formData: FormData) {
+    const validatedFields = CreateInvoice.safeParse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
     status: formData.get('status'),
@@ -43,7 +43,7 @@ export async function createreview(prevState: State, formData: FormData) {
     if (!validatedFields.success) {
         return {
         errors: validatedFields.error.flatten().fieldErrors,
-        message: 'Missing Fields. Failed to Create review.',
+        message: 'Missing Fields. Failed to Create Invoice.',
         };
     }
 
@@ -53,12 +53,12 @@ export async function createreview(prevState: State, formData: FormData) {
 
     try {
     await sql`
-        INSERT INTO reviews (customer_id, amount, status, date)
+        INSERT INTO invoices (customer_id, amount, status, date)
         VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
     `;
     } catch (error) {
     return {
-        message: 'Database Error: Failed to Create review.',
+        message: 'Database Error: Failed to Create Invoice.',
     };
     }
 
@@ -66,12 +66,12 @@ export async function createreview(prevState: State, formData: FormData) {
     redirect('/dashboard/reviews');
 }
 
-export async function updatereview(
+export async function updateInvoice(
     id: string,
     prevState: State,
     formData: FormData,
   ) {
-    const validatedFields = Updatereview.safeParse({
+    const validatedFields = UpdateInvoice.safeParse({
       customerId: formData.get('customerId'),
       amount: formData.get('amount'),
       status: formData.get('status'),
@@ -80,7 +80,7 @@ export async function updatereview(
     if (!validatedFields.success) {
       return {
         errors: validatedFields.error.flatten().fieldErrors,
-        message: 'Missing Fields. Failed to Update review.',
+        message: 'Missing Fields. Failed to Update Invoice.',
       };
     }
    
@@ -89,26 +89,26 @@ export async function updatereview(
    
     try {
       await sql`
-        UPDATE reviews
+        UPDATE invoices
         SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
         WHERE id = ${id}
       `;
     } catch (error) {
-      return { message: 'Database Error: Failed to Update review.' };
+      return { message: 'Database Error: Failed to Update Invoice.' };
     }
    
     revalidatePath('/dashboard/reviews');
     redirect('/dashboard/reviews');
   }
 
-export async function deletereview(id: string) {
+export async function deleteInvoice(id: string) {
 
     try {
-    await sql`DELETE FROM reviews WHERE id = ${id}`;
+    await sql`DELETE FROM invoices WHERE id = ${id}`;
     revalidatePath('/dashboard/reviews');
-    return { message: 'Deleted review.' };
+    return { message: 'Deleted Invoice.' };
     } catch (error) {
-    return { message: 'Database Error: Failed to Delete review.' };
+    return { message: 'Database Error: Failed to Delete Invoice.' };
     }
 }
 
