@@ -4,7 +4,7 @@ import Image from 'next/image';
 import * as React from "react";
 
 interface ImageProps {
-    src: string;       // 이미지 소스
+    src?: string;       // 이미지 소스
     alt: string;       // 이미지 대체 텍스트
     width?: number;    // 이미지 너비 (옵션)
     height?: number;   // 이미지 높이 (옵션)

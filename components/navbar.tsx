@@ -34,7 +34,6 @@ export const Navbar = () => {
 			classNames={{
 				inputWrapper: "bg-default-100",
 				input: "text-sm",
-				placeholder: "hidden md:flex",
 			}}
 			endContent={
 				<Kbd className="hidden xl:inline-block" keys={["command"]}>
@@ -55,7 +54,7 @@ export const Navbar = () => {
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1 mr-1" href="/">
-						<JuKaiLogo width={36} height={36} />
+						<JuKaiLogo width={36} height={36} alt={""} />
 						<p className="font-bold text-inherit">Motoongi</p>
 					</NextLink>
 				</NavbarBrand>
