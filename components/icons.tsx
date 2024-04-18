@@ -3,16 +3,26 @@ import { IconSvgProps } from "@/types";
 import Image from 'next/image';
 import * as React from "react";
 
-export const JuKaiLogo: React.FC<IconSvgProps> = ({
-    width = 36,
-    height = 36,
+interface ImageProps {
+    src: string;       // 이미지 소스
+    alt: string;       // 이미지 대체 텍스트
+    width?: number;    // 이미지 너비 (옵션)
+    height?: number;   // 이미지 높이 (옵션)
+    [key: string]: any; // 기타 속성 (예: 클래스명, 스타일)
+}
+
+export const JuKaiLogo: React.FC<ImageProps> = ({
+	src = JujutsuKaisenLogo,
+	alt="Jujutsu Kaisen Logo",
+	width =36,
+	height = 36,
     ...props
 }) => (
     <Image
-        src={JujutsuKaisenLogo}
-        alt="Jujutsu Kaisen Logo"
-		width={width}
-		height={height}
+		src={src}
+		alt={alt}
+        width={width}
+        height={height}
         {...props}
     />
 );
