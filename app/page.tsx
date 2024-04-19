@@ -33,6 +33,12 @@ export default function Page() {
           >
             <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
+          <Link
+            href="/register"
+            className="flex items-center gap-5 self-start rounded-lg bg-gray-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-gray-400 md:text-base"
+          >
+            <span>Register</span> <ArrowRightIcon className="w-5 md:w-6" />
+          </Link>
         </div>
         <div className="flex flex-col rounded-md bg-default-300 items-center justify-center p-6 md:w-3/5 md:px-14 md:py-12 ">
         <h1 className={title({ color: "black", size: "mt"})} >&quot;Motoongi&quot;</h1>
